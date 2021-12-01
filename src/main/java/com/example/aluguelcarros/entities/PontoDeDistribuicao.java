@@ -1,16 +1,22 @@
 package com.example.aluguelcarros.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "PontoDeDistribuicao")
+@Getter
+@Setter
 public class PontoDeDistribuicao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idPontoDeDistribuicao;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "FK_id_endereco", referencedColumnName = "idEndereco")
-    private Endereco endereco;
+    @ManyToOne
+    @JoinColumn(name = "idEmpresa", referencedColumnName = "idEmpresa", nullable = false, unique = true)
+    private Empresa empresa;
+
 }

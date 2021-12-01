@@ -1,10 +1,15 @@
 package com.example.aluguelcarros.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "Empresa")
+@Getter
+@Setter
 public class Empresa {
 
     @Id
@@ -13,12 +18,12 @@ public class Empresa {
     private Integer id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "FK_id_endereco", referencedColumnName = "idEndereco")
+    @JoinColumn(name = "idEndereco", referencedColumnName = "idEndereco")
     private Endereco endereco;
 
-    @OneToMany(mappedBy = "Empresa")
+    @OneToMany(mappedBy = "empresa")
     private List<PontoDeDistribuicao> pontosDeDistribuicao;
 
-    @OneToMany(mappedBy = "Empresa")
+    @OneToMany(mappedBy = "empresa")
     private List<Funcionario> funcionarios;
 }

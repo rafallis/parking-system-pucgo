@@ -1,9 +1,14 @@
 package com.example.aluguelcarros.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Funcionario")
+@Getter
+@Setter
 public class Funcionario {
 
     @Id
@@ -15,6 +20,6 @@ public class Funcionario {
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "FK_id_empresa", nullable = false)
+    @JoinColumn(name = "idEmpresa", referencedColumnName = "idEmpresa",nullable = false)
     private Empresa empresa;
 }
