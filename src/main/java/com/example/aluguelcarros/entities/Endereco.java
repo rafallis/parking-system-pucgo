@@ -24,9 +24,15 @@ public class Endereco {
     @Column(name = "rua", length = 45)
     private String rua;
 
-    @Column(name = "bairro", length = 45)
-    private String bairro;
+    @Column(name = "bairroSetor", length = 45)
+    private String bairroSetor;
 
     @Column(name = "numero")
     private Integer numero;
+
+    @Column(name = "quadra", length = 10)
+    private String quadra;
+
+    @Column(name = "lote", length = 10)
+    private String lote;
 }
