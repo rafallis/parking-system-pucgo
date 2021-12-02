@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(schema = "Filial")
+@Table(name = "Filial")
 @Getter
 @Setter
 public class Filial implements Serializable {
@@ -23,5 +23,5 @@ public class Filial implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idGaragem", referencedColumnName = "idGaragem")
-    private Garagem gareGaragem;
+    private Garagem garagem;
 }

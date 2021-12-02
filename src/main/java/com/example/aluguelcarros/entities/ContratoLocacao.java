@@ -18,6 +18,9 @@ public class ContratoLocacao implements Serializable {
     @Column(name = "idContrato")
     private Integer idContrato;
 
+    @Column(name = "ativo")
+    private Boolean ativo;
+
     @Column(name = "dataRetirada")
     private Date dataRetirada;
 

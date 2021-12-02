@@ -16,7 +16,7 @@ public class Garagem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idGaragem")
-    private Integer IdGaragem;
+    private Integer idGaragem;
 
     @OneToMany(mappedBy = "garagem")
     private List<Veiculo> veiculos;
