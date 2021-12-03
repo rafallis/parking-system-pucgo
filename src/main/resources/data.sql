@@ -1,0 +1,1 @@
+INSERT INTO ENDERECO(BAIRRO_SETOR, CEP, LOTE, NUMERO, QUADRA, RUA)  values ('Bairro 1', '11111111', '1', 1, '1', 'Rua 1');

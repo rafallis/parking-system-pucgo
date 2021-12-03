@@ -13,13 +13,11 @@ public class Endereco {
 
     @Id
     @Column(name = "idEndereco")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEndereco;
 
     @Column(name = "CEP", nullable = false, length = 8)
     private String cep;
-
-    @Column(name = "nome", length = 45)
-    private String nome;
 
     @Column(name = "rua", length = 45)
     private String rua;
