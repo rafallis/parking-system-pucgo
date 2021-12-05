@@ -1,6 +1,8 @@
 package com.example.aluguelcarros.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +13,9 @@ import java.io.Serializable;
 @Table(name = "Veiculo")
 @Getter
 @Setter
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "idVeiculo")
 public class Veiculo implements Serializable {
 
     @Id
@@ -27,8 +32,6 @@ public class Veiculo implements Serializable {
     @JoinColumn(name = "idCategoria", referencedColumnName = "idCategoria")
     private Categoria categoria;
 
-    @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "idGaragem")
-    private Garagem garagem;
+    @Column(name = "idGaragem")
+    private Integer idGaragem;
 }

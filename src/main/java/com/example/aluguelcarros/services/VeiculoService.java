@@ -23,8 +23,4 @@ public class VeiculoService {
         Optional<Veiculo> obj = repository.findById(idVeiculo);
         return obj.get();
     }
-
-    public List<Veiculo> findByGaragem(Integer idGaragem) {
-        return repository.findByIdGaragem(idGaragem);
-    }
 }

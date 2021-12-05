@@ -7,6 +7,7 @@
         <th scope="col">Placa</th>
         <th scope="col">Modelo</th>
         <th scope="col">Categoria</th>
+        <th scope="col">Garagem</th>
       </tr>
       </thead>
       <tbody v-for="(veiculo, index) in veiculos" :key="index">
@@ -15,6 +16,7 @@
         <td>{{veiculo.placa}}</td>
         <td>{{veiculo.idModelo}}</td>
         <td>{{veiculo.categoria.descricao}}</td>
+        <td>{{veiculo.idGaragem}}</td>
       </tr>
       </tbody>
     </table>
@@ -33,15 +35,6 @@ export default {
     }
   },
   methods: {
-    retrieveVeiculo(id) {
-      VeiculoDataService.get(id)
-        .then(response => {
-          this.veiculos.push(response.data)
-        })
-      .catch(e => {
-        alert(e)
-      })
-    },
     retrieveVeiculos() {
       VeiculoDataService.getAll()
         .then(response => {
@@ -53,7 +46,6 @@ export default {
     }
   },
   mounted() {
-    this.retrieveVeiculo(this.$route.params.id)
     this.retrieveVeiculos()
   }
 }

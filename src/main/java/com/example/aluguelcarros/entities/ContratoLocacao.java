@@ -1,5 +1,7 @@
 package com.example.aluguelcarros.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +16,7 @@ import java.util.Date;
 public class ContratoLocacao implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idContrato")
     private Integer idContrato;
 

@@ -13,6 +13,12 @@ export default new Router({
             component: () => import('./components/ContratosList')
         },
         {
+            path: '/contratos/novo',
+            alias: '/contratos/novo',
+            name: 'novo contrato',
+            component: () => import('./components/ContratosAdd')
+        },
+        {
             path: '/cliente',
             alias: '/cliente',
             name: 'clientes',
@@ -21,7 +27,7 @@ export default new Router({
         {
             path: '/veiculos/:id',
             name: 'mostrar veiculo',
-            component: () => import('./components/VeiculosList')
+            component: () => import('./components/VeiculoDetail')
         },
         {
             path: '/veiculos',

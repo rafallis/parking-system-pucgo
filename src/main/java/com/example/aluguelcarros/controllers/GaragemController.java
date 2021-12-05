@@ -17,9 +17,6 @@ public class GaragemController {
     @Autowired
     private GaragemService service;
 
-    @Autowired
-    private VeiculoService vService;
-
     @GetMapping("")
     public ResponseEntity<List<Garagem>> listarGaragens() {
         List<Garagem> listaDeGaragens = service.findAll();
@@ -30,11 +27,5 @@ public class GaragemController {
     public ResponseEntity<Garagem> recuperarGaragem(@PathVariable Integer idGaragem) {
         Garagem garagem = service.findById(idGaragem);
         return ResponseEntity.ok().body(garagem);
-    }
-
-    @GetMapping("/veiculos")
-    public ResponseEntity<List<Veiculo>> listarVeiculosDaGaragem(@RequestParam Integer idGaragem) {
-        List<Veiculo> listaDeVeiculos = vService.findByGaragem(idGaragem);
-        return ResponseEntity.ok().body(listaDeVeiculos);
     }
 }
