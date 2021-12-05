@@ -35,19 +35,19 @@ public class ContratoLocacao implements Serializable {
     @Column(name = "valorSeguro")
     private Double valorSeguro;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "idVeiculo", referencedColumnName = "idVeiculo")
     private Veiculo veiculo;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
     private Cliente cliente;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "idFilialRetirada", referencedColumnName = "idFilial")
     private Filial filialRetirada;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "idFilialDevolucao", referencedColumnName = "idFilial")
     private Filial filialDevolucao;
 }

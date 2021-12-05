@@ -2,6 +2,8 @@ package com.example.aluguelcarros.controllers;
 
 import com.example.aluguelcarros.entities.ContratoLocacao;
 import com.example.aluguelcarros.services.LocacaoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,8 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/contratos")
 public class ContratoController {
+
+    private Logger logger = LoggerFactory.getLogger(ContratoController.class);
 
     @Autowired
     private LocacaoService service;
@@ -36,7 +40,13 @@ public class ContratoController {
     }
 
     @PostMapping("/novo")
-    public ResponseEntity<ContratoLocacao> criar(ContratoLocacao contrato) {
-        return new ResponseEntity<>(service.novaLocacao(contrato), HttpStatus.CREATED);
+    public ResponseEntity<Object> criar(@RequestBody ContratoLocacao contrato) {
+        try {
+            service.novaLocacao(contrato);
+            return new ResponseEntity<>(contrato, HttpStatus.CREATED);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+        return new ResponseEntity<>(contrato, HttpStatus.BAD_REQUEST);
     }
 }

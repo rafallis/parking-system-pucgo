@@ -29,7 +29,6 @@ public class LocacaoService {
     }
 
     public ContratoLocacao novaLocacao(ContratoLocacao contrato) {
-        ContratoLocacao novoContrato = contrato;
         return repository.save(contrato);
     }
 }

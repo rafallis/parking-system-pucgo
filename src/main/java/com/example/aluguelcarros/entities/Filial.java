@@ -17,11 +17,11 @@ public class Filial implements Serializable {
     @Column(name = "idFilial")
     private Integer idFilial;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "idEndereco", referencedColumnName = "idEndereco")
     private Endereco endereco;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "idGaragem", referencedColumnName = "idGaragem")
     private Garagem garagem;
 }
