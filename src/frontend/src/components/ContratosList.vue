@@ -3,11 +3,13 @@
     <table class="table">
       <thead>
       <tr>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Actions</th>
+        <th scope="col">ID</th>
+        <th scope="col">Ativo</th>
+        <th scope="col">Data Retirada</th>
+        <th scope="col">Data Devolução</th>
+        <th scope="col">Valor Diaria</th>
+        <th scope="col">Valor Seguro</th>
+        <th scope="col">Veiculo</th>
       </tr>
       </thead>
       <tbody v-for="(contrato, index) in contratos" :key="index">
@@ -18,8 +20,7 @@
         <td>{{contrato.dataDevolucao}}</td>
         <td>{{contrato.valorDiaria}}</td>
         <td>{{contrato.valorSeguro}}</td>
-        <td>{{contrato.valorSeguro}}</td>
-        <td><a :href="'/customers/' + customer.id" class="btn btn-primary">Edit</a></td>
+        <td><a :href="'/veiculos/' + contrato.veiculo.idVeiculo" class="btn btn-primary">{{contrato.veiculo.idVeiculo}}</a></td>
       </tr>
       </tbody>
     </table>

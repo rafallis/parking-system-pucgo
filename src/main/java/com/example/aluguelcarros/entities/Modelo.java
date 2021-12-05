@@ -19,4 +19,8 @@ public class Modelo implements Serializable {
 
     @Column(name = "nome", length = 45)
     private String Nome;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idMarca", referencedColumnName = "idMarca")
+    private Marca marca;
 }

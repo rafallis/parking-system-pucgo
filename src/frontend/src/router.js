@@ -19,6 +19,17 @@ export default new Router({
             component: () => import('./components/ClienteList')
         },
         {
+            path: '/veiculos/:id',
+            name: 'mostrar veiculo',
+            component: () => import('./components/VeiculosList')
+        },
+        {
+            path: '/veiculos',
+            alias: '/veiculos',
+            name: 'veiculos',
+            component: () => import('./components/VeiculosList')
+        },
+        {
             path: '/cliente/novo',
             name: 'add-cliente',
             component: () => import('./components/AddCliente')

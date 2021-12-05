@@ -1,5 +1,6 @@
 package com.example.aluguelcarros.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +19,7 @@ public class Garagem implements Serializable {
     @Column(name = "idGaragem")
     private Integer idGaragem;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "garagem")
     private List<Veiculo> veiculos;
 }

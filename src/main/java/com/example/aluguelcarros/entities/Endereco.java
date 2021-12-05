@@ -13,7 +13,7 @@ public class Endereco {
 
     @Id
     @Column(name = "idEndereco")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idEndereco;
 
     @Column(name = "CEP", nullable = false, length = 8)
